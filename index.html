@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <title>Collage Web App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+    <center>
+        <h1 class="header"><kbd>Photo collage website</kbd></h1>
+        <hr>
+        <h4 class="btn btn-danger"><b>Because this website is based on it, please enable the camera when the pop-up
+                appears.</b></h4>
+        <h3> Click the button, say the 3 magic words "take a picture" and wait while the website takes a burst of your
+            beautiful image. </h3>
+        <button onclick="send()"
+            style="color: black; height: 50px; width: 100px; background-image: linear-gradient(Red, Orange, Yellow, Green, Blue, Indigo, Violet, Indigo, Blue, Green, Yellow, Orange, Red); font-size: 20px;">Start</button>
+        <label>Camera:</label>
+        <br>
+        <div id="Camera"></div>
+        <Label>All selfies will be displayed here:</Label>
+        <br>
+        <div id="resultShow">
+            <div id="result1" class="container">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVWm0kAQuYKaFaYe4dSRcHuF0jApmlfS7jq_-AfK5qjQ&s">
+            </div>
+            <div id="result2" class="container">
+                <img
+                    src="data:image/jpeg;base64,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">
+            </div>
+            <div id="result3" class="container">
+                <img src="">
+            </div>
+
+        </div>
+
+    </center>
+</body>
+
+</html>
